@@ -7,6 +7,9 @@
 
 :root {
 	--jetsize: 50px;
+	--obstaclesize: 40px;
+	--missilew: 3px;
+	--missileh: 10px;
 	--jetbg: url('https://wallpaperyourworld.com/cdn/shop/products/2927-11002_1800x.jpg?v=1612474443');
 }
 
@@ -36,8 +39,8 @@ missile {
 	position: fixed;
 	left: 50%;
 	z-index: 9999;
-	width: 3px;
-	height: 10px;
+	width: var(--missilew);
+	height: var(--missileh);
 	background: red;
 	clip-path: polygon(49% 0.6%,96.8% 39.2%,98.2% 97.39999999999999%,3.2% 98%,3.4000000000000004% 41.199999999999996%,49% 0.6%);
 }
@@ -46,8 +49,8 @@ obstacle {
 	position: fixed;
 	z-index: 9999999;
 	display: block;
-	width: 40px;
-	height: 40px;
+	width: var(--obstaclesize);
+	height: var(--obstaclesize);
 	background: black;
 	clip-path: polygon(76% 3.8%,74% 15.2%,94.39999999999999% 10.2%,95.39999999999999% 27.800000000000004%,91.2% 36.6%,95.8% 46.800000000000004%,87.6% 59.8%,95.6% 84.39999999999999%,71.39999999999999% 86%,70.8% 96%,48.4% 89.4%,26% 96.8%,7.6% 75.2%,13.8% 50%,5% 35.6%,1.7999999999999998% 11.200000000000001%,34.8% 3.4000000000000004%,46.6% 12%,60.4% 2.6%);
 	animation: spin 3s linear infinite reverse,

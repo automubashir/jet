@@ -2,11 +2,27 @@ var jet = document.querySelector("jet");
 var missile = document.querySelector("missile");
 var obstacle = document.querySelector("obstacle");
 var speed = 1; // 01 - 10
+var size = {
+	obstacle: window.innerWidth*10/100,
+	jet: window.innerWidth*8/100,
+	missile: window.innerWidth*1/100,
+	update: function() {
+		this.obstacle=window.innerWidth*10/100;
+		this.jet=window.innerWidth*8/100;
+		this.missile=window.innerWidth*1/100;
+	}
+}
+initSize();
 
 window.addEventListener('mousemove',(e)=>{
 if(e.pageX<window.innerWidth-10 && e.pageX>jet.clientWidth/2) {
 	jet.setAttribute("style","left: "+e.pageX+"px;");
 }
+})
+
+window.addEventListener('resize',(e)=>{
+	size.update();
+	initSize();
 })
 
 window.addEventListener('click',(e)=>{
@@ -18,6 +34,10 @@ window.addEventListener('click',(e)=>{
 	document.body.appendChild(el);
 	simulateMissile(el,l,t);
 })
+
+function initSize() {
+	document.body.setAttribute("style","--jetsize: "+size.jet+"px; --obstaclesize: "+size.obstacle+"px; --missilew: "+size.missile+"px; --missileh: "+(size.missile*3)+"px");
+}
 
 function simulateMissile(el,l,t) {
 	let i = 0;
